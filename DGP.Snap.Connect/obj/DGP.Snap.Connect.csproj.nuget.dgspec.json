@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\DGP.Snap.Connect.csproj": {}
+  },
+  "projects": {
+    "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\DGP.Snap.Connect.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\DGP.Snap.Connect.csproj",
+        "projectName": "DGP.Snap.Connect",
+        "projectPath": "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\DGP.Snap.Connect.csproj",
+        "packagesPath": "C:\\Users\\16861\\.nuget\\packages\\",
+        "outputPath": "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\16861\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net46"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "ModernWpfUI": {
+              "target": "Package",
+              "version": "[0.9.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

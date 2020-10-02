@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "AK8elSgnDqgJ9b53OSqY+6hWQ7OKVQdadsAMGDyowoMthHv0pmaBqrDYZwXQhKr+r4Abv8PWgUh+STHVlrM09A==",
+  "success": true,
+  "projectFilePath": "D:\\DGP.Snap.Connect\\DGP.Snap.Connect\\DGP.Snap.Connect.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\16861\\.nuget\\packages\\modernwpfui\\0.9.2\\modernwpfui.0.9.2.nupkg.sha512",
+    "C:\\Users\\16861\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
+    "C:\\Users\\16861\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
