@@ -11,4 +11,4 @@
 我们仍在开发Snap Connector,期间会产生一些难以预料的问题,目前你可以通过新建 issue 来向我们报告问题。
 我们也将完善完整的问题报告系统。
 
-####CJLU Web Team
+#### CJLU Web Team
