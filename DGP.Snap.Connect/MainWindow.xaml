@@ -56,11 +56,11 @@
                     ui:ControlHelper.CornerRadius="0" 
                     Click="LoginButton_Click"
                 IsEnabled="False"/>
+        <!--Margin="12,24,0,0"-->
         <WebBrowser Margin="12,24,0,0" 
                     Grid.Column="1"  
                     x:Name="Host" 
                     Opacity="0" 
                     ui:ScrollViewerHelper.AutoHideScrollBars="True"/>
-        <TextBlock Grid.Column="1" Text="{Binding ElementName=Host,Path=Source,Mode=OneWay}"/>
     </Grid>
 </Window>

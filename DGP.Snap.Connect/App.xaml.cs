@@ -18,10 +18,13 @@ namespace DGP.Snap.Connect
             NotifyIconManager.GetInstance();
         }
 
+
+
         protected override void OnExit(ExitEventArgs e)
         {
             if (!_isFirstInstance)
             {
+                Debug.WriteLine("nonono");
                 return;
             }
             _isRunning.ReleaseMutex();
@@ -35,7 +38,7 @@ namespace DGP.Snap.Connect
         private Mutex _isRunning;
         private void EnsureSingleInstance()
         {
-        #if DEBUG
+#if DEBUG
             if (Debugger.IsAttached)//调试模式
             {
                 _isRunning = new Mutex(true, "DGP.Snap.Mutex.Debug.Debuging", out _isFirstInstance);
@@ -50,7 +53,7 @@ namespace DGP.Snap.Connect
                 Shutdown();
                 return;
             }
-        #else
+#else
             _isRunning = new Mutex(true, "DGP.Snap.Mutex.Release", out _isFirstInstance);
 
             if (!_isFirstInstance)
@@ -58,7 +61,7 @@ namespace DGP.Snap.Connect
                 Shutdown();
                 return;
             }
-        #endif
+#endif
         }
         #endregion
     }

@@ -1,10 +1,6 @@
 ﻿using DGP.Snap.Connect.Properties;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DGP.Snap.Connect.Services
@@ -20,25 +16,21 @@ namespace DGP.Snap.Connect.Services
             (sender, e) =>
             {
                 if (AutoStartupService.IsAutorun())
-                {
                     AutoStartupService.SetAutoStartState(false);
-                }
                 else
-                {
                     AutoStartupService.SetAutoStartState(true);
-                }
             });
 
-        private readonly MenuItem itemConnectionState =
-            new MenuItem("校园网:未连接",
-            (sender, e) =>
-            {
+        private readonly MenuItem itemSchoolnetConnectionState =
+            new MenuItem("校园网:未连接", (sender, e) => { });
 
-            });
+        private readonly MenuItem itemInternetConnectionState =
+            new MenuItem("Internet:未连接", (sender, e) => { });
 
         private NotifyIconManager()
         {
-            itemConnectionState.Enabled = false;
+            itemSchoolnetConnectionState.Enabled = false;
+            itemInternetConnectionState.Enabled = false;
             NotifyIcon = new NotifyIcon
             {
                 Text = "Snap Connector",
@@ -47,13 +39,13 @@ namespace DGP.Snap.Connect.Services
                 ContextMenu = new ContextMenu(new[]
                 {
                     new MenuItem("打开 Snap Connector", (sender, e) => WindowManager.GetOrAddWindow<MainWindow>().Show()),
-                    itemConnectionState,
+                    itemSchoolnetConnectionState,
+                    itemInternetConnectionState,
                     MenuItemSeparator,
-                    new MenuItem("检查更新...",(sender, e) => Process.Start("https://github.com/DGP-Studio/DGP.Snap/releases")),
+                    new MenuItem("检查更新...",(sender, e) => Process.Start(@"https://github.com/CJLU-WebTeam/Snap.Connector/releases")),
                     itemAutorun,//自动启动
                     MenuItemSeparator,
-                    //new MenuItem("关于", (sender, e) => WindowManager.GetOrAddWindow<AboutWindow>().Show()),
-                    new MenuItem("退出", (sender, e) => Application.Exit())
+                    new MenuItem("退出", (sender, e) => App.Current.Shutdown())
                 })
             };
 
@@ -64,13 +56,9 @@ namespace DGP.Snap.Connect.Services
                     {
                         System.Windows.Window mainWindow = WindowManager.GetOrAddWindow<MainWindow>();
                         if (mainWindow.IsVisible)
-                        {
                             mainWindow.Close();
-                        }
                         else
-                        {
                             mainWindow.Show();
-                        }
                     }
                 };
             //设置check
@@ -78,7 +66,8 @@ namespace DGP.Snap.Connect.Services
                 (sender, e) =>
                 {
                     itemAutorun.Checked = AutoStartupService.IsAutorun();
-                    itemConnectionState.Text = ConnectionService.IsLoggedIn ? "校园网:已连接" : "校园网:未连接";
+                    itemSchoolnetConnectionState.Text = ConnectionService.IsLoggedIn ? "校园网:已连接" : "校园网:未连接";
+                    itemInternetConnectionState.Text = ConnectionService.IsConnectedToInternet() ? "Internet:已连接" : "Internet:未连接";
                 };
 
         }

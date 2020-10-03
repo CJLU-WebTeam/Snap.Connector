@@ -1,12 +1,5 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace DGP.Snap.Connect.Services
 {
@@ -36,7 +29,7 @@ namespace DGP.Snap.Connect.Services
         {
             get
             {
-                using (RegistryKey setting = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,RegistryView.Registry64).OpenSubKey("SOFTWARE",true).CreateSubKey("Snap Connector",true))
+                using (RegistryKey setting = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE", true).CreateSubKey("Snap Connector", true))
                 {
                     Debug.WriteLine(setting.GetValue(key));
                     return setting.GetValue(key);
@@ -44,7 +37,7 @@ namespace DGP.Snap.Connect.Services
             }
             set
             {
-                using (RegistryKey setting = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE",true).CreateSubKey("Snap Connector",true))
+                using (RegistryKey setting = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE", true).CreateSubKey("Snap Connector", true))
                 {
                     setting.SetValue(key, value);
                 }

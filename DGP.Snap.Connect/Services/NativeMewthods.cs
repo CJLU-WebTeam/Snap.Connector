@@ -1,41 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DGP.Snap.Connect.Services
 {
-    class NativeMewthods
+    internal class NativeMewthods
     {
         public delegate bool CallBack(IntPtr hwnd, int lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern IntPtr FindWindow(string strClass, string strWindow);
+        private static extern IntPtr FindWindow(string strClass, string strWindow);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern IntPtr EnumChildWindows(IntPtr hWndParent, CallBack lpEnumFunc, int lParam);
+        private static extern IntPtr EnumChildWindows(IntPtr hWndParent, CallBack lpEnumFunc, int lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern int GetWindowRect(IntPtr hwnd, RECT lpRect);
+        private static extern int GetWindowRect(IntPtr hwnd, RECT lpRect);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern int SetCursorPos(int x, int y);
+        private static extern int SetCursorPos(int x, int y);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern int SetForegroundWindow(IntPtr hwnd);
+        private static extern int SetForegroundWindow(IntPtr hwnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+        private static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
         public const int MOUSEEVENTF_LEFTDOWN = 0x2;
         public const int MOUSEEVENTF_LEFTUP = 0x4;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern int GetWindowText(IntPtr hwnd, string lpString, int cch);
+        private static extern int GetWindowText(IntPtr hwnd, string lpString, int cch);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern int GetWindowTextLength(IntPtr hwnd);
+        private static extern int GetWindowTextLength(IntPtr hwnd);
 
         public struct RECT
         {

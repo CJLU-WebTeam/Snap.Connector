@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DGP.Snap.Connect.Services
 {
+    /// <summary>
+    /// Directly copied from DGP.Snap Framework
+    /// 100% stable
+    /// </summary>
     internal class AutoStartupService
     {
         /// <summary>
@@ -22,7 +23,7 @@ namespace DGP.Snap.Connect.Services
         private static string AppFullPath { get { return Process.GetCurrentProcess().MainModule.FileName; } }
 
         /// <summary>
-        /// 设置开机自动启动-只需要调用改方法就可以了参数里面的bool变量是控制开机启动的开关的，默认为开启自启启动
+        /// 设置开机自动启动
         /// </summary>
         /// <param name="flag">自启开关</param>
         public static void SetAutoStartState(bool flag = true)
